@@ -1,0 +1,16 @@
+- hosts: localhost
+  connection: local
+  gather_facts: False
+  vars_files:
+    - vars.yml
+  roles:
+    - ec2_security_group
+    - ec2_server
+
+- hosts: ec2hosts
+  user: ubuntu
+  sudo: True
+  gather_facts: true
+  roles:
+    - apache
+
