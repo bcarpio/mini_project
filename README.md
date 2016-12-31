@@ -3,7 +3,7 @@
 This is an example mini project using Ansible to create an AWS security group and new EC2 instance passing data from one role to the next role.
 
 The Vagrant file is included to test Ansible locally without having to create EC2 instances:
-* Vagrant up (this also runs the server spec tests)
+* Vagrant up (this also runs the serverspec tests)
 * Vagrant provision will also run the serverspec tests)
 * curl localhost:8080 (test the setup)
 
