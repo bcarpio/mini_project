@@ -3,7 +3,7 @@
 
 VAGRANTFILE_API_VERSION = "2"
 
-Vagrant.require_version ">= 1.6.5"
+Vagrant.require_version ">= 1.8.0"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/xenial64"
 
@@ -16,5 +16,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "ansible" do |ansible|
     ansible.verbose = "v"
     ansible.playbook = "playbook/.vagrant.yml"
+  end
+  config.vm.provision :serverspec do |spec|
+    spec.pattern = 'playbook/serverspec/roles/*/*_spec.rb'
   end
 end
